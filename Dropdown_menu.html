@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Navigation Bar</title>
+
+    
+    <style>        
+        /* Choice 1: unordered list */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+        
+        li {
+            float: left;
+        }
+        
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: underline;
+        }
+        
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+        
+        li.dropdown {
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: deepskyblue;
+            min-width: 160px;
+        }
+        
+        .dropdown-content a{
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: yellow;
+        }
+        
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+        
+        
+        /* Choice 2: button groups */
+        .button {
+            background-color: orange;
+            border: none;
+            color: blue;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: overline;
+            display: inline-block;
+            font-size: 16px;
+            cursor: progress;
+        }
+        
+        .button:hover {
+            color: white;
+            background-color: blue;
+        }
+        
+        .bn-dropdown-content {
+            display: none;
+            background-color: greenyellow;
+            width: 130px;
+            padding: 12px 16px;
+            position: absolute;
+            left: 480px;
+        }
+        
+        .button:hover .bn-dropdown-content {
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Dropdown</a>
+            <ul class="dropdown-content">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Dropdown Menu inside a Navigation Bar</h2>
+    <h3>Choice 1: unordered list.</h3>
+    <p>Hover over the "Dropdown" link to see the dropdown menu.</p>
+    <br>
+    <p>-----------------------------------------</p>
+
+    <h3>Choice 2: button groups.</h3>
+
+    <button class="button">Button1</button>
+    <button class="button">Button2
+        <div class="bn-dropdown-content">
+            <ul>
+                <li><a href="#">Link A</a></li>
+                <li><a href="#">Link B</a></li>
+                <li><a href="#">Link C</a></li>
+            </ul>
+        </div>
+    </button>
+    <button class="button">Button3</button>
+    <a href="http://www.google.com" target="_blank" button class="button">Google</a>
+
+    <button class="button" a href="#">Dropdown
+        <div class="bn-dropdown-content">
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+        </div>
+    </button>
+</body>
+
+</html>

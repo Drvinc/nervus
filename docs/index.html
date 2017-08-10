@@ -1,6 +1,17 @@
 <html>
   <head>
     <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            border: blue 3px dashed;
+            overflow: auto
+        }
+        .container{
+            max-width: 800px;
+            margin: 0 auto;
+        }
         body{margin: 35;
             background-color:aliceblue}
         div~p{padding: 35 25 40 25;
@@ -10,6 +21,9 @@
             text-indent: 30;
             text-decoration-line: underline;
             text-align:justify}
+        p:nth-of-type(2){
+            background-color:antiquewhite;
+        }
         li{list-style: none;
             list-style-position: inside;
             margin: 0px;
@@ -18,15 +32,17 @@
         .HAHA:before {content:"HAHAHA😀: ";}
         .power {font-size: 25px; font-weight:bold;
             padding: 10px; border: green 5px dashed;}
+        a[href*="google"]{font-size: 40}
     </style>
   </head>
+  
   <body>
-    <div>
-       <h1>NERVUS</h1>
-       <p class="power">The students were asked to respond to two studies. One provided data in support of the deterrence argument, and the other provided data that called it into question. Both studies—you guessed it—were made up, and had been designed to present what were, objectively speaking, equally compelling statistics. The students who had originally supported capital punishment rated the pro-deterrence data highly credible and the anti-deterrence data unconvincing; the students who’d originally opposed capital punishment did the reverse. At the end of the experiment, the students were asked once again about their views. Those who’d started out pro-capital punishment were now even more in favor of it; those who’d opposed it were even more hostile.</p>
+    <div class="container">
+       <p>NERVUS</p>
+       <p>The students were asked to respond to two studies. One provided data in support of the deterrence argument, and the other provided data that called it into question. Both studies—you guessed it—were made up, and had been designed to present what were, objectively speaking, equally compelling statistics. The students who had originally supported capital punishment rated the pro-deterrence data highly credible and the anti-deterrence data unconvincing; the students who’d originally opposed capital punishment did the reverse. At the end of the experiment, the students were asked once again about their views. Those who’d started out pro-capital punishment were now even more in favor of it; those who’d opposed it were even more hostile.</p>
        <article>
-       <a href=“#” target=“_self”>測試文字</a>
-       <p>A recent experiment performed by Mercier and some European colleagues neatly demonstrates this asymmetry. Participants were asked to answer a series of simple reasoning problems. They were then asked to explain their responses, and were given a chance to modify them if they identified mistakes. The majority were satisfied with their original choices; fewer than fifteen per cent changed their minds in step two.</p>
+       <a href=“http://google.com/” target=“_blank”>測試文字</a>
+       <p class="power">A recent experiment performed by Mercier and some European colleagues neatly demonstrates this asymmetry. Participants were asked to answer a series of simple reasoning problems. They were then asked to explain their responses, and were given a chance to modify them if they identified mistakes. The majority were satisfied with their original choices; fewer than fifteen per cent changed their minds in step two.</p>
        <span>
            <ul>
                <li class="HAHA">“The Enigma of Reason”</li>
