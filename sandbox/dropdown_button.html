@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Dropdown with button -->
+<style>
+* {
+  box-sizing: border-box;
+  border: 1px dashed #eee;
+  margin: 0;
+}
+       /* button groups */
+    .v_btn_grp{
+      width = 150px;
+      display: block;
+    }
+        
+        .button {
+            position: relative;
+            background-color: orange;
+            margin: 0;
+            border: none;
+            color: blue;
+            padding: 0.5em;
+            text-align: center;
+            text-decoration: overline;
+            font-size: 16px;
+            cursor: progress;
+            width: 130px;
+        }
+        
+        .button:hover {
+            color: white;
+            background-color: blue;
+        }
+        
+        .bn-dropdown-content {
+            display: none;
+            float: right;
+            background-color: greenyellow;
+            width: 130px;
+            padding: 0;
+            position: absolute;
+            left: 0%; top: 100%;
+        }
+        
+        .button:hover .bn-dropdown-content {
+            display: block;
+        }
+        
+        li{
+            list-style-type: none;
+            position: relative;
+        }
+        .bn-dropdown-content2 {
+            display: none;
+            
+        }
+    
+        li:hover .bn-dropdown-content2{
+            display: block;
+            position: absolute;
+            width: 130px;
+            padding: 0;
+            float: none;
+            left: 100%; top: 0%;
+        }
+        nav:after {
+            content:""; 
+            display:block; 
+            clear:left;
+        }
+</style>
+</head>
+<body>
+<header><h1>Dropdown menu with button and ul/li</h1></header>
+<nav>
+    <button class="button">Button1</button>
+    <button class="button">Button2
+            <ul class="bn-dropdown-content">
+                <li><a href="#">Link A</a></li>
+                <li><a href="#">Link B</a>
+                    <ul class="bn-dropdown-content2">
+                        <li><a href="#">Link B1</a></li>
+                        <li><a href="#">Link B2</a></li>
+                        <li><a href="#">Link B3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Link C</a>
+                    <ul class="bn-dropdown-content2">
+                        <li><a href="#">Link C1</a></li>
+                        <li><a href="#">Link C2</a></li>
+                        <li><a href="#">Link C3</a></li>
+                    </ul>
+                </li>
+            </ul>
+    </button>
+    <button class="button">Button3</button>
+    <a href="http://www.google.com" target="_blank" button class="button">Google</a>
+
+    <button class="button" a href="#">Dropdown
+        <div class="bn-dropdown-content">
+            3534
+        </div>
+    </button>
+</nav>
+<main>
+  <p>Main content</p>
+</main>
+<footer>Footer</footer>
+</body>
+</html>

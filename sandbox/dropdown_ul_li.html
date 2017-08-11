@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Dropdown with button -->
+<!-- Dropdown with ul/li -->
 <style>
 * {
   box-sizing: border-box;
-  border: 1px dashed #ddd;
+  border: 1px dashed #eee;
+  margin: 0;
 }
 ul { 
   padding: 0;
@@ -13,19 +14,18 @@ ul {
   background: #f75;
 }
 ul li {
-  display: block;
   position:relative;
   float: left;
   background: #f75;
+  list-style: none;
 }
-/* This hides the dropdowns */
+/* Hide the dropdowns */
 li ul {
   display: none;
 }
 ul li a {
   display: block;
   padding: 0.5em;
-  text-decoration:underline;
   color: #fff;
 }
 ul li a:hover {
@@ -46,25 +46,21 @@ li:hover a {
 li:hover li a:hover {
   background: #777;
 }
-.main-navigation li ul li {
-  border-top: 0;
-}
-/* Displays second level dropdowns to the right of the first level dropdown */
+/* Assign positions of 2nd and 3rd level dropdowns */
 ul ul ul {
   left: 100%;
   top: 0; 
 }
-
 ul ul {
   left: 0;
   top: 100%; 
 }
     
-/* Simple clearfix */
+/* Simple clearfix ??? */
 ul:after {
-    content:""; /* 1 */
-    display:block; /* 2 */
-    clear:left;
+    content:""; 
+    display:block;
+    clear:both;
 }
 </style>
 </head>
@@ -107,38 +103,10 @@ ul:after {
   <li><a href="#">About Us</a></li>
 </ul>
 </nav>
-<h2>How it works</h2><hr />
-<pre>
-ul li {
-  display: block;
-  position: relative;
-  float: left;
-  background: #1bc2a2;
-}
-</pre>
-<p>Using relative positioning for the parent li allows it to be used as a container for absolutely positioned child elements.</p>
-<hr />
-<pre>
-li ul {
-  display: none; 
-}
-</pre>
-<p>This hides the dropdown menus until hovering over a parent li.</p>
-<hr />
-<pre>
-li:hover > ul {
-  display: block; 
-  position: absolute;
-}
-</pre>
-<p>This displays the dropdown ul when hovering over a parent li, using <code>li:hover ul</code> for the selector without the <code>></code> child combinator selector will work for single level dropdowns.</p>
-<hr />
-<pre>
-ul ul ul {
-    left: 100%;
-    top: 0;
-}
-</pre>
-<p>Poisitions the second level dropdowns to the right of the first level dropdown.</p>
+<main>
+  <p>Main content</p>
+  <p>Code modified from: <a href="https://codepen.io/twodogstar/pen/FwedC" target="_blank">https://codepen.io/twodogstar/pen/FwedC</a></p>
+</main>
+<footer>Footer</footer>
 </body>
 </html>
