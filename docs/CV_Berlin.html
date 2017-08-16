@@ -8,16 +8,17 @@
     *{
       margin: 0;
       padding: 0;
-      width: auto;
-      font-size: 1em;
+      box-sizing(border-box);
     }
+    
+    [class*="col-"]{width: 100%; float: left;}
+    
     body {
       margin: 10px;
     }
-    nav {
-      width: 100vw;  
+    footer {
+      color: darkgray;
     }
-    h1{font-size: 2em}
     h1 h2 h3 {
       font-family: museo-slab, Roboto Slab, Georgia, Times New Roman, serif;
     }
@@ -66,13 +67,12 @@
   </style>
 </head>
 <body>
-  <header>
+  <header class="col-">
     <div id="top"></div>
     <h1>Po-Lin Chen, MD</h1>
   </header>
   <hr>
-  <nav class="nav">
-    <p>
+  <nav class="nav col-">
     <ul class="breadcrumb">
       <li><a href="#">Education</a></li>
       <li><a href="#">Interests</a></li>
@@ -80,8 +80,6 @@
       <li><a href="#">Website</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
-    </p>
-
   </nav>
   <main>
     <div class="content">
@@ -114,7 +112,7 @@
   </main>
   <hr>
   <footer>
-    Last update: Aug, 11. 2017
+    <p>Last update: Aug, 11. 2017</p>
   </footer>
   <div class="gotop"><a href="#top">Go top</a></div>
 </body>
