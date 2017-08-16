@@ -16,21 +16,24 @@
     h1 h2 h3 {
       font-family: museo-slab, Roboto Slab, Georgia, Times New Roman, serif;
     }
-    .TOC {
-      padding: 2px;
-    }
-    .TOC li{
-      float: left;
+    ul.breadcrumb {
+      padding: 3px 10px;
       list-style: none;
-      padding: 0px 4px;
-      margin: 1px;
-      border-left: 1px grey solid;
+      background-color: #ebebe0;
+      font-size: 17px;
     }
-    .TOC li a{
-      text-decoration: none;
+    ul.breadcrumb li {display: inline;}
+    ul.breadcrumb li+li:before {
+        padding-left: 3px;
+        padding-right: 5px;
+        color: black;
+        content: "|";
     }
-    .TOC li:hover{
-      text-decoration: underline;
+    ul.breadcrumb li a {
+        text-decoration: none;
+    }
+    ul.breadcrumb li a:hover {
+        text-decoration: underline;
     }
     .content{
       background-color: azure;
@@ -62,8 +65,8 @@
     <h1>Po-Lin Chen, MD</h1>
   </header>
   <hr>
-  <nav class="content">
-    <ul class="TOC">
+  <nav class="nav">
+    <ul class="breadcrumb">
       <li><a href="#">Education</a></li>
       <li><a href="#">Interests</a></li>
       <li><a href="#">Publications and presentations</a></li>
