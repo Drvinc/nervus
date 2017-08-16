@@ -10,56 +10,40 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <!-- JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/a408fce6c8.js"></script>
+  <style>
+    .navbar, jumbotron{
+      margin: 0;
+    }
+    .jumbotron {
+      text-align: center;
+      color: azure;
+      background: url('/pics/portrait-of-adam-1578.jpg') no-repeat;
+      background-position: center; 
+      background-size: cover;
+    }
+    .jumbotron-caption {
+      color: darkgray;
+    }
+    .jumbotron-caption a{
+      color: darkgray;
+      text-decoration: none;
+    }
+    .jumbotron-caption a:hover {
+      color: azure;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <div id="HEADslide" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner" role="listbox" style="height: 30vw; min-height: 250px">
-      <div class="item active">
-        <img src="fuji_banner.jpg" alt="" style="height: 30vw; min-height: 250px">
-        <div class="carousel-caption">
-        <div class="row">
-          <div class="col-sm-6"><h3>Fuji Mountain</h3><a href="#" class="btn btn-primary" role="button">VISIT...</a></div>
-          <div class="col-sm-6"><h3>Japan</h3></div>
-        </div>
-        </div>
-      </div>
-      <div class="item">
-        <img src="greatcanyon_banner.jpg" alt="" style="height: 30vw; min-height: 250px">
-        <div class="carousel-caption">
-          <div class="row">
-          <div class="col-sm-6"><h3>The Great Canyon</h3><a href="#" class="btn btn-primary" role="button">VISIT...</a></div>
-          <div class="col-sm-6"><h3>U.S.A.</h3></div>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <img src="niagara-falls_banner.jpg" alt="" style="height: 30vw; min-height: 250px">
-        <div class="carousel-caption"><h3>Niagara Falls</h3><a href="#" class="btn btn-primary" role="button">VISIT...</a></div>
-      </div>
-    </div>
-    <div class="control-btn">
-      <a href="#HEADslide" class="left carousel-control" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a href="#HEADslide" class="right carousel-control" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-    </div>
-    <ol class="carousel-indicators">
-      <li data-target="#HEADslide" data-slide-to="0"></li>
-      <li data-target="#HEADslide" data-slide-to="1"></li>
-      <li data-target="#HEADslide" data-slide-to="2"></li>
-    </ol>
-  </div>
-  <div class="jumbotron">
-    <h1 align="center">World WONDERS</h1>
-  </div>
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+  <div class="container">
+   <nav class="navbar navbar-default">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu1">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+          <span class="fa fa-navicon" aria-hidden="true"></span>
         </button>
         <a href="#" class="navbar-brand">
-          <span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>
+          <span class="fa fa-blind" aria-hidden="true">Nervus</span>
         </a>
       </div>
       <div class="collapse navbar-collapse" id="menu1">
@@ -73,23 +57,12 @@
           <li><a href="#">FORUM</a></li>
       </ul>
       </div>
-    </div>
   </nav>
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#">LINK 01</a></li>
-    <li><a href="#">LINK 02</a></li>
-    <li><a href="#">LINK 03</a></li>
-  </ul>
-  <ul class="nav nav-pills nav-stacked">
-    <li class="active"><a href="#">LINK 01</a></li>
-    <li><a href="#">LINK 02</a></li>
-    <li><a href="#">LINK 03</a></li>
-  </ul>
-  <ul class="breadcrumb">
-    <li class="active"><a href="#">LINK 01</a></li>
-    <li><a href="#">LINK 02</a></li>
-    <li><a href="#">LINK 03</a></li>
-  </ul>
+    <div class="jumbotron">
+      <h1>Mind and Brain</h1>
+      <p>Explore the galaxy within our heads.</p>
+      <h5 class="jumbotron-caption">Image: <a href="https://www.wikiart.org/en/giuseppe-arcimboldo/portrait-of-adam-1578" target="_blank">Giuseppe Arcimboldo (1578). <em>Portrait of Adam.</em></a></h4>
+    </div>
   <div class="container">
     <div class="page-header">
       <h1>Page Header</h1>
@@ -138,6 +111,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </body>
 </html>
