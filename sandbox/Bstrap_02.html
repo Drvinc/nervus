@@ -12,24 +12,22 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
-  <div class="jumbotron">
-    <h1>Bootstrap JUMBOTRON</h1>
-    <div class="row">
-    <div class="col-sm-6">LEFT</div>
-    <div class="col-sm-6">RIGHT</div>
-    </div>
-    <a class="btn btn-primary btn-lg">GO TO</a>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+  <nav class="navbar navbar-nav navbar-fixed-top">
+    <ul class="nav navbar-nav">
+      <li><a href="#sec01">Sec 01</a></li>
+      <li><a href="#sec02">Sec 02</a></li>
+      <li><a href="#sec03">Sec 03</a></li>
+      <li><a href="#sec04">Sec 04</a></li>
+    </ul>
+  </nav>
+  <div id="sec01">
+    <h1>Facebook</h1>
   </div>
-  <div class="container">
-    <div class="page-header">
-      <h1>Page Header</h1>
-    </div>
-    <div class="row">
-      <div class="col-sm-4">COL 1</div>
-      <div class="col-sm-4">COL 2</div>
-      <div class="col-sm-4">COL 3</div>
-    </div>
+  <div id="sec02">
+    <h1>TWITTER</h1>
   </div>
+  <div id="sec03"></div>
+  <div id="sec04"></div>
 </body>
 </html>

@@ -11,28 +11,26 @@
       width: auto;
     }
     body {
-      margin: 2%;
+      margin: 10px;
+    }
+    h1 h2 h3 {
+      font-family: museo-slab, Roboto Slab, Georgia, Times New Roman, serif;
     }
     .TOC {
-      background-color: antiquewhite;
-      padding: 3px;
-      border-radius: 0.5em;
+      padding: 2px;
     }
     .TOC li{
       float: left;
       list-style: none;
-      padding: 2px 4px;
-      margin: 2px;
-      border: 2px cyan solid;
-      border-radius: 0.5em; 
+      padding: 0px 4px;
+      margin: 1px;
+      border-left: 1px grey solid;
     }
     .TOC li a{
       text-decoration: none;
     }
-    .TOC:after{
-      content:""; 
-      display:block;
-      clear:both;  
+    .TOC li:hover{
+      text-decoration: underline;
     }
     .content{
       background-color: azure;
@@ -53,15 +51,18 @@
     .gotop a {
       text-decoration: none;
     }
+    .clear {
+      clear:both;  
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1 id="top">Po-Lin Chen, MD</h1>
+    <div id="top"></div>
+    <h1>Po-Lin Chen, MD</h1>
   </header>
   <hr>
-  <nav>
-    <p>My Profile</p>
+  <nav class="content">
     <ul class="TOC">
       <li><a href="#">Education</a></li>
       <li><a href="#">Interests</a></li>
@@ -69,6 +70,7 @@
       <li><a href="#">Website</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
+    <ul class="clear"></ul>
   </nav>
   <main>
     <div class="content">
