@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>From exercise</title>
+</head>
+<body>
+  <form name="form1" method="post" action="/action_page.php">
+    <fieldset>
+      <legend>基本資料</legend>
+      <p>姓名：<input type="text" name="name1" placeholder="請輸入姓名" size="8" maxlength="4">
+      生日：西元 <input type="text" name="yyyy1" size="4" maxlength="4"> 年 
+      <select class="mm1" name="mm1">
+        <option value="0" disabled selected>請選取</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select> 月
+      <select class="dd1" name="dd1">
+        <option value="0" disabled selected>請選取</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+      </select> 日</p>
+      <p>電話：<input type="text" name="phone1" size="10" maxlength="10"></p>
+      <p>性別（單選）：<input type="radio" name="gender1" value="0" checked>男
+      <input type="radio" name="gender1" value="1">女</p>
+      
+    </fieldset><br>
+    <fieldset>
+      <legend>其他項目</legend>
+      <p>嗜好（複選）：
+        <input type="checkbox" name="hobby1" value="1">閱讀
+        <input type="checkbox" name="hobby1" value="2" checked>運動
+        <input type="checkbox" name="hobby1" value="3">音樂
+        <input type="checkbox" name="hobby1" value="4" checked>聊天
+        <input type="checkbox" name="hobby1" value="5">睡覺
+      </p>
+      <p>最喜歡的幾門課（多選）：
+        <select name="favor1" multiple="multiple">
+          <option value="1">C++</option> 
+          <option value="2">Python</option> 
+          <option value="3">Ruby</option>  
+          <option value="4">PHP</option> 
+          <option value="5">CSS+HTML</option> 
+          <option value="6">R</option> 
+        </select>
+      </p>
+      <p>意見回饋<br>
+      <textarea name="feedback1" id="" cols="50" rows="5" placeholder="請填寫意見"></textarea>
+      </p>
+    </fieldset>
+    <p>
+      <input type="submit" onclick="submit1()" value="提交">
+      <input type="reset" value="重設">
+    </p>
+  </form>
+  
+  <script>
+    function submit1() {
+      var name = form1.name1.value;
+      var yyyy = form1.yyyy1.value;
+      var fedbck = form1.feedback1.value;
+      if (name=="") {alert("未輸入姓名")};
+      if (yyyy=="") {alert("未輸入生日年")};
+      if (fedbck=="") {alert("未輸入意見")}
+    }
+  </script>
+</body>
+</html>
