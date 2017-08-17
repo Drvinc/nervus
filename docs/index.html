@@ -33,7 +33,7 @@
     .jumbotron {
       text-align: center;
       color: azure;
-      background: url('pics/portrait-of-adam-1578.jpg') no-repeat;
+      background: url('pics/portrait-of-adam-1578.jpg');
       background-position: center; 
       background-size: cover;
     }
@@ -79,7 +79,6 @@
       .columns {
         -webkit-column-count: 2;
         -moz-column-count: 2;
-        -moz-column-fill: balance;
         column-count: 2;
       }
     }
@@ -87,7 +86,6 @@
       .columns {
         -webkit-column-count: 3;
         -moz-column-count: 3;
-        -moz-column-fill: balance;
         column-count: 3;
       }
     }   
@@ -95,7 +93,6 @@
       .columns {
         -webkit-column-count: 4;
         -moz-column-count: 4;
-        -moz-column-fill: balance;
         column-count: 4;
       }
     }
@@ -140,6 +137,7 @@
     <div class="page-header">
       <h2>The Enigma of Consciousness</h2>
       <p>An unsettled debate</p>
+      <form name="form1" action="post"><p><button name="resort" type="button">Sort Random</button></p></form>
     </div>
     <div class="column columns">
       <div class="pins">
@@ -349,5 +347,19 @@
     </div>
   </div>
   </div>
+  <script type="text/javascript">
+    form1.resort.onclick = function(){rmSort();}
+    function rmSort(){
+      var collection = $("div.column div").get();
+      collection.sort(function() {
+          return Math.random()>0.5 ? 1 : -1;
+      });
+      $.each(collection,function(i,el) {
+          var color = this.className,
+              $el = $(el);
+          $el.css({backgroundColor: color}).appendTo( $el.parent() );
+      }); 
+    }
+  </script>
 </body>
 </html>
