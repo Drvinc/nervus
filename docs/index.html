@@ -62,6 +62,11 @@
       padding-left: 1em;
     }
     /* Waterfall layout for thumbnails */
+    .column {
+      -webkit-column-fill: balance;
+      -moz-column-fill: balance;
+      column-fill: balance;
+    }
     @media screen and (max-width: 576px) {
       .pins img {float: right;}
       .columns {
@@ -74,7 +79,7 @@
       .columns {
         -webkit-column-count: 2;
         -moz-column-count: 2;
-        -moz-column-fill: auto;
+        -moz-column-fill: balance;
         column-count: 2;
       }
     }
@@ -82,7 +87,7 @@
       .columns {
         -webkit-column-count: 3;
         -moz-column-count: 3;
-        -moz-column-fill: auto;
+        -moz-column-fill: balance;
         column-count: 3;
       }
     }   
@@ -90,7 +95,7 @@
       .columns {
         -webkit-column-count: 4;
         -moz-column-count: 4;
-        -moz-column-fill: auto;
+        -moz-column-fill: balance;
         column-count: 4;
       }
     }
@@ -136,7 +141,7 @@
       <h2>The Enigma of Consciousness</h2>
       <p>An unsettled debate</p>
     </div>
-    <div class="columns">
+    <div class="column columns">
       <div class="pins">
         <div href="#" class="thumbnail">
           <img src="pics/Chalmers_254x191.jpg" alt="Chalmers_254x191.jpg" style="object-fit: cover">
