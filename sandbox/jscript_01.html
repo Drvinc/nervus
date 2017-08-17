@@ -5,12 +5,12 @@
   <title>Document</title>
 </head>
 <body>
-  <p id="txt">Default</p>
-  <button id="btn">click me!</button>
   <script type="text/javascript">
-    document.getElementById("btn").onclick = function() {
-      document.getElementById("txt").innerHTML = "Changed"
-    }
+    for (var n=1, total=0;  total<=1000 ; n++){
+      total = total + (2*n)-1;
+      count = n;
+    } 
+    alert(count + "," + total)
   </script>
 </body>
 </html>
