@@ -15,9 +15,6 @@
     *{
       box-sizing: border-box;
     }
-    @media screen and (max-width:576px){
-      .pins img {float: right;}
-    }
     .container {
       min-width: 320px;
     }
@@ -65,15 +62,8 @@
       padding-left: 1em;
     }
     /* Waterfall layout for thumbnails */
-    .columns {
-      -webkit-column-gap: 10px;
-      -webkit-column-fill: balance;
-      -moz-column-gap: 10px;
-      -moz-column-fill: balance;
-      column-gap: 15px;
-      column-fill: balance;
-    }
     @media screen and (max-width: 576px) {
+      .pins img {float: right;}
       .columns {
         -webkit-column-count: 1;
         -moz-column-count: 1;
@@ -84,6 +74,7 @@
       .columns {
         -webkit-column-count: 2;
         -moz-column-count: 2;
+        -moz-column-fill: auto;
         column-count: 2;
       }
     }
@@ -91,6 +82,7 @@
       .columns {
         -webkit-column-count: 3;
         -moz-column-count: 3;
+        -moz-column-fill: auto;
         column-count: 3;
       }
     }   
@@ -98,6 +90,7 @@
       .columns {
         -webkit-column-count: 4;
         -moz-column-count: 4;
+        -moz-column-fill: auto;
         column-count: 4;
       }
     }
