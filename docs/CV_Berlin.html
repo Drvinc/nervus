@@ -10,10 +10,13 @@
   }    
   body{
     background-color: floralwhite;
+    margin: 0;
   }
   header, nav, main, footer {
     max-width: 800px;
+    min-width: 320px;
     margin: 0 auto;
+    padding: 0 0.5em;
     border-bottom: 2px orange solid;
   }
   nav ul{
@@ -26,6 +29,14 @@
   }
   nav li+li:before {
     content: "| ";
+  }
+  .portrait {
+    float: right;
+  }
+  .portrait img {
+    border-radius: 0.5em;
+    height: 200px;
+    width: 200px;
   }
 </style>
   </head>
@@ -43,6 +54,9 @@
   </ul>
 </nav>
 <main>
+  <div class="portrait">
+    <img src="pics/Berlin_portrait.jpg" alt="Po-Lin Chen">
+  </div>
   <p>
     My bibliography.
   </p>
