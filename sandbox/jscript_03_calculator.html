@@ -19,28 +19,18 @@
 </head>
 <body>
   <form name="form1" action="post" action="/action_page.php">
-   <p>
-    <span id="1"></span>
-    <span id="2"></span>
-    <span id="3"></span>
-    <span id="4"></span>
-    <span id="5"></span>
-    <span id="6"></span>
-    <span id="7"></span>
-    <span id="8"></span>
-    <span id="9"></span>
-    <span id="10"></span>
-    <span id="11"></span>
-    <span id="12"></span>
-    <span id="13"></span>
-    <span id="14"></span>
-    <span id="15"></span>                
+   <p id="seats">          
    </p><div class="clear"></div>
    <p>
     <button name="findseat" type="button" onclick="arrSeat()">劃位</button>
    </p>
   </form>
   <script type="text/javascript">
+    /* Create spans */
+    for (var i=0; i < seats.length; i++){
+      var s = document.createElement('span'); s.getAttribute("id",(i+1));
+      
+    };
     /* Set initial seats */
     var seats = [0,0,1,1,0,1,0,0,0,1,1,0,0,1,0];
     for (var i=0; i < seats.length; i++){
