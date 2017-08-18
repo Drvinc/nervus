@@ -8,19 +8,24 @@
   *{
     box-sizing: border-box;
   }    
+  body{
+    background-color: floralwhite;
+  }
   header, nav, main, footer {
     max-width: 800px;
     margin: 0 auto;
+    border-bottom: 2px orange solid;
   }
   nav ul{
     list-style: none;
     padding-left: 0;
+    font-size: 1.1em;
   }
   nav li{
     display: inline-block;
   }
   nav li+li:before {
-    content: "|";
+    content: "| ";
   }
 </style>
   </head>
@@ -30,41 +35,38 @@
     </header>
 <nav>
   <ul>
-    <li><a href="#">Education</a></li>
-    <li><a href="#">Interests</a></li>
-    <li><a href="#">Publications&nbsp;and&nbsp;presentations</a></li>
-    <li><a href="#">Website</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#interests">Interests</a></li>
+    <li><a href="#bibliog">Publications&nbsp;and&nbsp;presentations</a></li>
+    <li><a href="#website">Website</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 <main>
   <p>
-    The purpose of this page is to progressively list the resources useful when working on
-    W3C projects using GitHub.
-    The following links should help you find your way.
-    Refer to the <a href="faq.html">FAQ</a> for details about the breadth and scope of W3C projects.
+    My bibliography.
   </p>
-    <h2>Education</h2>
+    <h2 id="education">Education</h2>
     <p>Residency: Chang Gung Memorial Hospital, Neurology Residency</p><p>Sep, 2017 &ndash;</p>
     <p>Internship: Chang Gung Memorial Hospital</p><p>Jul, 2014 &ndash; Jun, 2015</p>
     <p>Medical School: School of Medicine, Chang Gung University
-    <h2>Interests</h2>
+    <h2 id="interests">Interests</h2>
     <p>Tennis</p>
     <p>Sciences on mind and brain</p>
     <p>Darwin's theory of evolution, evolutionary psychology</p>
     <p>Data Visualization</p>
     <p></p>
-    <h2>Publications&nbsp;and&nbsp;presentations</h2>
+    <h2 id="bibliog">Publications&nbsp;and&nbsp;presentations</h2>
     <p>Sleep2014, Poster</p>
-    <h2>Website</h2>
+    <h2 id="website">Website</h2>
     <p><a href="http://bignr.blogspot.tw" target="_blank">My Blog</a></p>
     <p><a href="https://github.com/Drvinc" target="_blank">My GitHub Profile</a></p>
-    <h2>Contact</h2>
+    <h2 id="contact">Contact</h2>
     <p>email: t24735281@gmail.com</p>
 </main>
     <footer>
       <p>
-        <a href="https://w3.org/"><img src="img/w3c.svg" width="65" height="45" alt="W3C Logo"></a>
+        Last edit: Aug. 18, 2017.
       </p>
     </footer>
   </body>
