@@ -108,24 +108,28 @@
 <body>
   <div class="container">
    <nav class="navbar navbar-default">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu1">
-          <span class="fa fa-navicon" aria-hidden="true"></span>
-        </button>
+      <div class="navbar-header pull-left">
         <a href="#" class="navbar-brand">
           <span class="fa fa-blind" aria-hidden="true">Nervus</span>
         </a>
       </div>
-      <div class="collapse navbar-collapse" id="menu1">
-        <ul class="nav navbar-nav navbar-right">
+      <div class="navbar-header pull-right">
+          <ul class="nav navbar-nav pull-left">
+            <li><a href="#">Po-Lin Chen</a></li>
+          </ul>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu1">
+          <span class="fa fa-navicon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse pull-left" id="menu1">
+        <ul class="nav navbar-nav">
           <li class="active"><a href="#">HOME</a></li>
           <li><a href="#">Philosophers</a></li>
           <li><a href="#">Brain Scientists</a></li>
           <li><a href="#">Physicians</a></li>
           <li><a href="#">Psychologists</a></li>
           <li><a href="#">Others</a></li>
-          <li><a href="#"></a></li>
-      </ul>
+        </ul>
       </div>
   </nav>
     <div class="jumbotron">
@@ -137,7 +141,7 @@
     <div class="page-header">
       <h2>The Enigma of Consciousness</h2>
       <p>An unsettled debate</p>
-      <form name="form1" action="post"><p><button name="resort" type="button">Sort Random</button></p></form>
+      <form name="form1" action="post"><p><button name="resort" type="button" >Sort by random</button></p></form>
     </div>
     <div class="column columns">
       <div class="pins">
