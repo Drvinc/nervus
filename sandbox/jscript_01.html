@@ -6,12 +6,18 @@
 </head>
 <body>
   <script type="text/javascript">
-    for (var n=1, total=0;  total<=1000 ; n++){
-      total = total + (2*n)-1;
-      count = n;
-      document.write(count + "," + ((2*n)-1) + "," + total + "<br>");
-    } 
-    alert(count + "," + total)
+    var array = [2,4,6,7,8,3,9];
+    function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+    }
+    shuffleArray(array);
+    alert(array);
   </script>
 </body>
 </html>
