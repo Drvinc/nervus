@@ -2,11 +2,8 @@
   box-sizing: border-box;
 }    
 body{
-  background-color: floralwhite;
+  background-color: #fbfffb;
   margin: 0;
-}
-#author {
-  background-color: #fbfffb
 }
 header, nav, main, footer {
   max-width: 800px;
@@ -23,7 +20,7 @@ h2,h3 {
 }
 figure {
   margin: 1em 0;
-  border-left: 0.5em #ffebe2 solid;
+  border-left: 0.5em #efe5e1 solid;
   padding: 0 0.8em;
 }
 p,ul{
@@ -33,7 +30,7 @@ ul {
   padding-left: 1.5em;
 }
 header, nav, main {
-  border-bottom: 2px #ffe2cc solid;
+  border-bottom: 1px #913712 solid;
 }
 footer {
   text-align: center;

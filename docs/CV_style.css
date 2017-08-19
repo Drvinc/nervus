@@ -5,9 +5,6 @@ body{
   background-color: floralwhite;
   margin: 0;
 }
-#author {
-  background-color: #fbfffb
-}
 .info_left {
   float: left;
   text-align: left;
