@@ -10,9 +10,11 @@ body{
 }
 .info_left {
   float: left;
+  text-align: left;
 }
 .info_right {
   float: right;
+  text-align: right;
 }
 .clear {
   clear: both;
@@ -22,9 +24,6 @@ header, nav, main, footer {
   min-width: 320px;
   margin: 0 auto;
   padding: 0 1.5em;
-}
-h1 {
-  text-align: center;
 }
 h2,h3 {
   text-decoration: underline;
@@ -44,7 +43,7 @@ ul {
 header, nav, main {
   border-bottom: 1px #913712 solid;
 }
-footer {
+header, footer {
   text-align: center;
 }
 nav ul{
