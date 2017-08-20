@@ -210,10 +210,11 @@
           Sort by:&nbsp;<input type="radio" name="sortMethod" value="Rd" checked> Random
           <input type="radio" name="sortMethod" value="Az"> A to Z&nbsp;&nbsp;<button name="sort1" type="button">Sort</button>
         </p>
-        <p><input type="text" name="sq" placeholder=" I'm looking for...">
-          <button name="sq" type="submit">Search</button></p>
+        <p><input type="text" name="sq" placeholder=" I'm looking for...">&nbsp;
+          <button name="sq" type="button">Search</button></p>
         <p>
-          Show: <span><input type="checkbox" name="author_subject" value="phi"> Philosophers</span>
+          Show: <button name="sel_all" type="button">All</button>
+          <button name="clr_all" type="button">Clear</button> <br><span><input type="checkbox" name="author_subject" value="phi"> Philosophers</span>
           <span><input type="checkbox" name="author_subject" value="nsc"> Neuroscientist</span>
           <span><input type="checkbox" name="author_subject" value="psy"> Psychologist</span>
           <span><input type="checkbox" name="author_subject" value="doc"> Physician</span>
@@ -524,6 +525,7 @@
       }); 
     }
     /* Show Go to top when scrolling */
+    $(".gotop").hide();
     var timer
     $(window).on("scroll", function() {
       clearTimeout(timer);

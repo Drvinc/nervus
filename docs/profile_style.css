@@ -20,8 +20,8 @@ h2,h3 {
 }
 figure {
   margin: 1em 0;
-  border-left: 0.5em #efe5e1 solid;
-  padding: 0 0.8em;
+  border-left: 0.3em #fed solid;
+  padding: 0 0.5em;
 }
 p,ul{
   margin: 0.4em auto;
@@ -45,6 +45,9 @@ nav li{
 }
 nav li+li:before {
   content: "| ";
+}
+nav a{
+  text-decoration: none;
 }
 .portrait{
   object-fit: cover;
