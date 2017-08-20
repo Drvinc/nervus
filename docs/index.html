@@ -524,17 +524,14 @@
       }); 
     }
     /* Show Go to top when scrolling */
-    window.addEventListener("scroll", scr_show);
-    function scr_show() {
-      if ($(this).scrollTop() == 0) {
-        $('#gotop').hide();
+    $(window).on("scroll", function() {
+      if ($(window).scrollTop() <= 0) {
+        $(".gotop").fadeOut();
       } else {
-        $('#gotop').show();
-        setTimeout(function() {
-          $('#gotop').fadeOut('fast');
-        }, 2500);
+        $(".gotop").fadeIn();
+        setTimeout(function(){$(".gotop").fadeOut();}, 1500);
       }
-    }
+    });
   </script>
 </body>
 </html>
