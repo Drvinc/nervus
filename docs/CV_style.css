@@ -34,6 +34,10 @@ figure {
 p,ul{
   margin: 0.4em auto;
 }
+p.cite { 
+  margin-left: 2em; 
+  text-indent: -2em;
+}
 ul {
   padding-left: 1.5em;
 }
@@ -53,6 +57,9 @@ nav li{
 }
 nav li+li:before {
   content: "| ";
+}
+nav a{
+  text-decoration: none;
 }
 .portrait{
   object-fit: cover;
