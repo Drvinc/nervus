@@ -524,12 +524,14 @@
       }); 
     }
     /* Show Go to top when scrolling */
+    var timer
     $(window).on("scroll", function() {
+      clearTimeout(timer);
       if ($(window).scrollTop() <= 0) {
-        $(".gotop").fadeOut();
+        $(".gotop").hide();
       } else {
-        $(".gotop").fadeIn();
-        setTimeout(function(){$(".gotop").fadeOut();}, 1500);
+        $(".gotop").show();
+        timer = setTimeout(function(){$(".gotop").fadeOut();}, 1500);
       }
     });
   </script>
