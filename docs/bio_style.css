@@ -27,12 +27,7 @@ h2,h3 {
   text-decoration: underline;
   margin: 0.6em auto 0.4em auto;
 }
-figure {
-  margin: 1em 0;
-  border-left: 0.5em #efe5e1 solid;
-  padding: 0 0.8em;
-}
-p,ul{
+p, ul{
   margin: 0.4em auto;
 }
 p.cite { 
@@ -61,6 +56,9 @@ nav li+li:before {
 }
 nav a{
   text-decoration: none;
+}
+figure {
+  margin: 1em 0;
 }
 .portrait{
   object-fit: cover;

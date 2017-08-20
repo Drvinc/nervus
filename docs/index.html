@@ -49,6 +49,7 @@
       text-decoration: underline;
     }
     .thumbnail {
+      border-radius: 0.5em;
       margin: 0.5em auto;
       background-color: #fbfffb
     }
@@ -68,8 +69,12 @@
       -moz-column-fill: balance;
       column-fill: balance;
     }
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 575px) {
       .pins img {float: right;}
+      .thumbnail img{
+        height: 150px;
+        max-width: 150px;
+      }
       .columns {
         -webkit-column-count: 1;
         -moz-column-count: 1;
@@ -91,18 +96,47 @@
       }
     }   
     @media screen and (min-width: 992px) {
+      .sideList {
+        float: right;
+      }
+      .sideList div {
+        margin: 0.5em 0 !important;
+        position: fixed;
+        bottom: 0.5em;
+      }
+    }
+    @media screen and (min-width: 1200px) {
       .columns {
         -webkit-column-count: 4;
         -moz-column-count: 4;
         column-count: 4;
       }
     }
+    @media screen and (max-width: 991px) {    
+      .sideList li {
+        display: inline-block;
+      }
+      .sideList li+li:before {
+        content: "| ";
+      }
+    }
+    .sideList div {
+      margin: 1em;
+      margin-bottom: 0.5em;
+      border-radius: 0.5em;
+      padding: 1em;
+      border: 1px lightgrey solid;
+    }
     .pins {
-      width: 100%;
       display: inline-block;
-      -webkit-column-break-inside: avoid;
-      -moz-column-break-inside: avoid;
-      column-break-inside: avoid;
+      width: 100%;
+    }
+    .sideList {
+      padding: 0;
+    }
+    .sideList ul {
+      list-style: none;
+      padding-left: 0;
     }
     .navbar-collapse {
       border: 1px #efefef solid;
@@ -117,6 +151,24 @@
       text-align: center;
       background-color: #eeeeee;
       border-top: 1px #eeeeee solid;
+    }
+    .gotop {
+      width: 30%;
+      position: fixed;
+      bottom: 0;
+      right: 35%;
+      padding-top: 0.5em;
+      padding-bottom: 0;
+      text-align: center;
+      background-color:cornsilk;
+      border-top-left-radius: 0.5em;
+      border-top-right-radius: 0.5em;
+    }
+    .gotop a{
+      text-decoration: none;
+    }
+    span {
+      white-space: nowrap;
     }
   </style>
 </head>
@@ -152,10 +204,46 @@
   <div class="container">
     <div class="page-header">
       <h2>The Enigma of Consciousness</h2>
-      <p>An unsettled debate</p>
-      <form name="form1" action="post"><p><button name="resort" type="button" >Sort by random</button></p></form>
+      <p>A short list of contemporary thinkers.</p>
+      <form name="form1" action="post" action="/action_page.php">
+        <p>
+          Sort by:&nbsp;<input type="radio" name="sortMethod" value="Rd" checked> Random
+          <input type="radio" name="sortMethod" value="Az"> A to Z&nbsp;&nbsp;<button name="sort1" type="button">Sort</button>
+        </p>
+        <p><input type="text" name="sq" placeholder=" I'm looking for...">
+          <button name="sq" type="submit">Search</button></p>
+        <p>
+          Show: <span><input type="checkbox" name="author_subject" value="phi"> Philosophers</span>
+          <span><input type="checkbox" name="author_subject" value="nsc"> Neuroscientist</span>
+          <span><input type="checkbox" name="author_subject" value="psy"> Psychologist</span>
+          <span><input type="checkbox" name="author_subject" value="doc"> Physician</span>
+          <span><input type="checkbox" name="author_subject" value="csc"> Computer&nbsp;scientist</span>
+        </p>
+      </form>
     </div>
-    <div class="column columns">
+    <div class="sideList col-md-2">
+      <div>
+      Go to:
+      <ul>
+        <li><a href="#D_Dennett">Daniel Dennett</a></li>
+        <li>Michael Gazzaniga</li>
+        <li>Giulio Tononi</li>
+        <li>Gerald Edelman</li>
+        <li>Thomas Nagel</li>
+        <li>Oliver Sacks</li>
+        <li>Francis Crick</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      </div>
+    </div>
+    <div class="column columns col-md-10">
       <div class="pins">
         <div href="#" class="thumbnail">
           <img src="pics/Chalmers_254x191.jpg" alt="Chalmers_254x191.jpg" style="object-fit: cover">
@@ -175,7 +263,7 @@
           </div>
         </div>
       </div>
-      <div class="pins">
+      <div class="pins" id="F_Crick">
         <div href="#" class="thumbnail">
           <img  src="pics/Crick_255x280.jpg" alt="Crick_255x280.jpg" style="object-fit: cover">
           <div class="caption">
@@ -190,7 +278,7 @@
           </div>
         </div>
       </div>
-      <div class="pins">
+      <div class="pins" id="D_Dennett">
         <div href="#" class="thumbnail">
           <img src="pics/Dennett_254x191.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -352,6 +440,23 @@
       </div>   
       <div class="pins">
         <div href="#" class="thumbnail">
+          <img src="pics/Hofstadter_221x296.jpg" alt="" style="object-fit: cover">
+          <div class="caption">
+            <h3>Douglas&nbsp;Hofstadter</h3>
+            <p><strong>&ldquo;In the end, we self-perceiving, self-inventing, locked-in mirages are little miracles of self-reference.&rdquo;</strong></p>
+            <p>&mdash; <em>I Am a Strange Loop</em> (2007) | <a href="https://www.goodreads.com/book/show/123471" target="_blank"><i class="fa fa-book" aria-hidden="true"></i></a></p>
+            <ul>
+              <li><em>Gödel, Escher, Bach: An Eternal Golden Braid</em> (1979) <a href="https://www.goodreads.com/book/show/24113" target="_blank"> | <i class="fa fa-book" aria-hidden="true"></i></a></li>
+            </ul>
+            <p>
+              <a href="#" class="btn btn-primary" role="button">MORE...</a>
+              <a href="#" class="btn btn-danger" role="button">Video</a>
+            </p>
+          </div>
+        </div>
+      </div> 
+      <div class="pins">
+        <div href="#" class="thumbnail">
           <img src="pics/Nagel_300x225.JPG" alt="" style="object-fit: cover">
           <div class="caption">
             <h3>Thomas&nbsp;Nagel</h3>
@@ -386,9 +491,19 @@
   <div class="footer">
     <p>Last update: Aug. 19, 2017.</p>
   </div>
+  <div class="gotop" id="gotop">
+    <p><a href="#">Back to top</a></p>
+  </div>
   </div>
   <script type="text/javascript">
-    form1.resort.onclick = function(){rmSort();}
+    rdSort();
+    form1.sort1.onclick = function(){
+      if (form1.sortMethod[0].checked) {
+        rdSort();
+      } else if (form1.sortMethod[1].checked) {
+        
+      }
+    }
     /* Fisher-Yates shuffle */
     function shuffleArray(array) {
       for (var i = array.length - 1; i > 0; i--) {
@@ -400,13 +515,25 @@
       return array;
     }
     /* sort pins */
-    function rmSort(){
+    function rdSort(){
       var collection = $(".pins").get();
       shuffleArray(collection);
-      $.each(collection,function(i,el) {
-          var $el = $(el);
-          $el.appendTo( $el.parent() );
+      $.each(collection,function(i,pin) {
+          var $pin = $(pin);
+          $pin.appendTo( $pin.parent() );
       }); 
+    }
+    /* Show Go to top when scrolling */
+    window.addEventListener("scroll", scr_show);
+    function scr_show() {
+      if ($(this).scrollTop() == 0) {
+        $('#gotop').hide();
+      } else {
+        $('#gotop').show();
+        setTimeout(function() {
+          $('#gotop').fadeOut('fast');
+        }, 2500);
+      }
     }
   </script>
 </body>
