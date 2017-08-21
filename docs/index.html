@@ -101,8 +101,6 @@
       }
       .sideList div {
         margin: 0.5em 0 !important;
-        position: fixed;
-        bottom: 0.5em;
       }
     }
     @media screen and (min-width: 1200px) {
@@ -226,30 +224,15 @@
       <div>
       Go to:
       <ul>
-        <li><a href="#D_Dennett">Daniel Dennett</a></li>
-        <li>Michael Gazzaniga</li>
-        <li>Giulio Tononi</li>
-        <li>Gerald Edelman</li>
-        <li>Thomas Nagel</li>
-        <li>Oliver Sacks</li>
-        <li>Francis Crick</li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
       </ul>
       </div>
     </div>
     <div class="column columns col-md-10">
-      <div class="pins">
+      <div class="pins" id="D_Chalmers">
         <div href="#" class="thumbnail">
           <img src="pics/Chalmers_254x191.jpg" alt="Chalmers_254x191.jpg" style="object-fit: cover">
           <div class="caption">
-            <h3>David&nbsp;chalmers</h3>
+            <h3>David&nbsp;Chalmers</h3>
             <p>
               <strong>&ldquo;How does the water of the brain turn into the wine of consciousness?&rdquo;</strong>
             </p>
@@ -293,7 +276,7 @@
           </div>
           </div>
         </div>
-      <div class="pins">
+      <div class="pins" id="A_Damasio">
         <div href="#" class="thumbnail">
           <img src="pics/Damasio_254x191.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -307,7 +290,7 @@
           </div>
           </div>
       </div>
-      <div class="pins">
+      <div class="pins" id="M_Gazzaniga">
         <div href="#" class="thumbnail">
           <img src="pics/gazzaniga_200x200.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -324,7 +307,7 @@
           </div>
         </div>
       </div>
-      <div class="pins">
+      <div class="pins" id="O_Sacks">
         <div href="#" class="thumbnail">
           <img src="pics/Sacks_254x191.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -338,7 +321,7 @@
           </div>
         </div>
       </div>
-      <div class="pins">
+      <div class="pins" id="G_Tononi">
         <div href="#" class="thumbnail">
           <img src="pics/Tononi_180x232.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -352,7 +335,7 @@
           </div>
         </div>
       </div>
-      <div class="pins">
+      <div class="pins" id="C_Koch">
         <div href="#" class="thumbnail">
           <img src="pics/Koch_220x220.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -366,7 +349,7 @@
           </div>
         </div>
       </div>
-      <div class="pins">
+      <div class="pins" id="P_Churchland">
         <div href="#" class="thumbnail">
           <img src="pics/P_Churchland_380x270.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -382,7 +365,7 @@
           </div>
         </div>
       </div>
-      <div class="pins">
+      <div class="pins" id="K_Searle">
         <div href="#" class="thumbnail">
           <img src="pics/Searle_254x191.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -396,7 +379,7 @@
           </div>
         </div>
       </div>
-      <div class="pins">
+      <div class="pins" id="R_Penrose">
         <div href="#" class="thumbnail">
           <img src="pics/Penrose_260x326.jpeg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -411,7 +394,7 @@
           </div>
         </div>
       </div>
-      <div class="pins">
+      <div class="pins" id="S_Pinker">
         <div href="#" class="thumbnail">
           <img src="pics/Pinker_254x191.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -425,7 +408,7 @@
           </div>
         </div>
       </div>
-      <div class="pins">
+      <div class="pins" id="S_Harris">
         <div href="#" class="thumbnail">
           <img src="pics/Sam_Harris_254x191.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -439,7 +422,7 @@
           </div>
         </div>
       </div>   
-      <div class="pins">
+      <div class="pins" id="D_Hofstadter">
         <div href="#" class="thumbnail">
           <img src="pics/Hofstadter_221x296.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -456,7 +439,7 @@
           </div>
         </div>
       </div> 
-      <div class="pins">
+      <div class="pins" id="T_Nagel">
         <div href="#" class="thumbnail">
           <img src="pics/Nagel_300x225.JPG" alt="" style="object-fit: cover">
           <div class="caption">
@@ -472,7 +455,7 @@
           </div>
         </div>
       </div> 
-      <div class="pins">
+      <div class="pins" id="G_Edelman">
         <div href="#" class="thumbnail">
           <img src="pics/gerald_edelman_240x266.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -498,12 +481,31 @@
   </div>
   <script type="text/javascript">
     rdSort();
+    generateList();
+    function generateList() {
+      /* generate quick list from pins */
+      $(".sideList ul").empty();
+      var nameArray = [];
+      var idArray = []
+      $(".pins h3").each(function(){
+        nameArray.push($(this).text());  
+      });
+      $(".pins").each(function(){
+        idArray.push($(this).attr("id"));
+      });
+      $.each(nameArray,function(i,name) {
+        $(".sideList ul").append("<li><a href=#"+ idArray[i] + " >" + name + "&nbsp;</li>");
+      }); 
+    }
     form1.sort1.onclick = function(){
       if (form1.sortMethod[0].checked) {
+        /* sort by random */
         rdSort();
       } else if (form1.sortMethod[1].checked) {
-        
+        /* sort by A-Z */
+        azSort();
       }
+      generateList();
     }
     /* Fisher-Yates shuffle */
     function shuffleArray(array) {
@@ -524,17 +526,39 @@
           $pin.appendTo( $pin.parent() );
       }); 
     }
-    /* Show Go to top when scrolling */
+    /* Scroll settings */
     $(".gotop").hide();
     var timer
+    function repositSide(){
+      $(".sideList").css({ "position": "static"});
+    }
     $(window).on("scroll", function() {
+      /* Show Go to top when scrolling */
       clearTimeout(timer);
-      if ($(window).scrollTop() <= 0) {
+      var offset_Y = window.pageYOffset;
+      if (offset_Y == 0) {
         $(".gotop").hide();
       } else {
         $(".gotop").show();
         timer = setTimeout(function(){$(".gotop").fadeOut();}, 1500);
       }
+      /* fixed sideList if scrolling over bottom of page-header (sideref_Y) */
+      if (window.matchMedia("(min-width: 992px)").matches){
+        var sideref_Y = $(".page-header").offset().top + $(".page-header").height();
+        var sidepos_X = $(".sideList").offset().left;
+        if (offset_Y >= sideref_Y){
+          $(".sideList").css({ "position": "fixed", "top": "0px", "left": sidepos_X });
+        } else {
+          repositSide();
+        } 
+      } else {
+        repositSide();
+      }
+    });
+    /* force re-position sideList when resize screen */
+    $(window).resize(function(){
+      repositSide();
+      $(window).scroll();
     });
   </script>
 </body>
