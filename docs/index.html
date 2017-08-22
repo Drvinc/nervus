@@ -12,9 +12,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/a408fce6c8.js"></script>
   <style>
-    *{
-      box-sizing: border-box;
-    }
     .container {
       min-width: 320px;
     }
@@ -51,6 +48,7 @@
     .thumbnail {
       border-radius: 0.5em;
       margin: 0.5em auto;
+      padding-bottom: 0;
       background-color: #fbfffb
     }
     .thumbnail img{
@@ -68,6 +66,10 @@
       -webkit-column-fill: balance;
       -moz-column-fill: balance;
       column-fill: balance;
+    }
+    
+    @media screen and (max-width: 454px) {
+      .pins img {float: none !important;}
     }
     @media screen and (max-width: 575px) {
       .pins img {float: right;}
@@ -103,13 +105,7 @@
         margin: 0.5em 0 !important;
       }
     }
-    @media screen and (min-width: 1200px) {
-      .columns {
-        -webkit-column-count: 4;
-        -moz-column-count: 4;
-        column-count: 4;
-      }
-    }
+
     @media screen and (max-width: 991px) {    
       .sideList li {
         display: inline-block;
@@ -118,16 +114,17 @@
         content: "| ";
       }
     }
+    .pins {
+      display: inline-block;
+      width: 100%;
+    }
     .sideList div {
       margin: 1em;
       margin-bottom: 0.5em;
       border-radius: 0.5em;
       padding: 1em;
       border: 1px lightgrey solid;
-    }
-    .pins {
-      display: inline-block;
-      width: 100%;
+      background-color: #fffcf2;
     }
     .sideList {
       padding: 0;
@@ -151,14 +148,14 @@
       border-top: 1px #eeeeee solid;
     }
     .gotop {
-      width: 30%;
+      width: 32%;
       position: fixed;
       bottom: 0;
-      right: 35%;
+      right: 34%;
       padding-top: 0.5em;
       padding-bottom: 0;
       text-align: center;
-      background-color:cornsilk;
+      background-color:#fffcf2;
       border-top-left-radius: 0.5em;
       border-top-right-radius: 0.5em;
     }
@@ -205,19 +202,23 @@
       <p>A short list of contemporary thinkers.</p>
       <form name="form1" action="post" action="/action_page.php">
         <p>
-          Sort by:&nbsp;<input type="radio" name="sortMethod" value="Rd" checked> Random
-          <input type="radio" name="sortMethod" value="Az"> A to Z&nbsp;&nbsp;<button name="sort1" type="button">Sort</button>
+          Sort by:&nbsp;
+          <input type="radio" name="sortMethod" value="Rd" checked> random
+          <input type="radio" name="sortMethod" value="Az"> alphabet&nbsp;&nbsp;
+          <button name="sort1" type="button">Sort</button>
         </p>
-        <p><input type="text" name="sq" placeholder=" I'm looking for...">&nbsp;
+        
+        <!-- <p><input type="text" name="sq" placeholder=" I'm looking for...">&nbsp;
           <button name="sq" type="button">Search</button></p>
         <p>
           Show: <button name="sel_all" type="button">All</button>
-          <button name="clr_all" type="button">Clear</button> <br><span><input type="checkbox" name="author_subject" value="phi"> Philosophers</span>
-          <span><input type="checkbox" name="author_subject" value="nsc"> Neuroscientist</span>
-          <span><input type="checkbox" name="author_subject" value="psy"> Psychologist</span>
-          <span><input type="checkbox" name="author_subject" value="doc"> Physician</span>
-          <span><input type="checkbox" name="author_subject" value="csc"> Computer&nbsp;scientist</span>
-        </p>
+          <button name="clr_all" type="button">Clear</button> <br>
+          <span><input type="checkbox" name="author_subject" value="phi" checked> Philosophers</span>
+          <span><input type="checkbox" name="author_subject" value="nsc" checked> Neuroscientist</span>
+          <span><input type="checkbox" name="author_subject" value="psy" checked> Psychologist</span>
+          <span><input type="checkbox" name="author_subject" value="doc" checked> Physician</span>
+          <span><input type="checkbox" name="author_subject" value="csc" checked> Computer&nbsp;scientist</span>
+        </p>  -->
       </form>
     </div>
     <div class="sideList col-md-2">
@@ -228,7 +229,7 @@
       </div>
     </div>
     <div class="column columns col-md-10">
-      <div class="pins" id="D_Chalmers">
+      <div class="pins" id="D_Chalmers_10000">
         <div href="#" class="thumbnail">
           <img src="pics/Chalmers_254x191.jpg" alt="Chalmers_254x191.jpg" style="object-fit: cover">
           <div class="caption">
@@ -247,7 +248,7 @@
           </div>
         </div>
       </div>
-      <div class="pins" id="F_Crick">
+      <div class="pins" id="F_Crick_01010">
         <div href="#" class="thumbnail">
           <img  src="pics/Crick_255x280.jpg" alt="Crick_255x280.jpg" style="object-fit: cover">
           <div class="caption">
@@ -262,7 +263,7 @@
           </div>
         </div>
       </div>
-      <div class="pins" id="D_Dennett">
+      <div class="pins" id="D_Dennett_10000">
         <div href="#" class="thumbnail">
           <img src="pics/Dennett_254x191.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -276,7 +277,7 @@
           </div>
           </div>
         </div>
-      <div class="pins" id="A_Damasio">
+      <div class="pins" id="A_Damasio_01010">
         <div href="#" class="thumbnail">
           <img src="pics/Damasio_254x191.jpg" alt="" style="object-fit: cover">
           <div class="caption">
@@ -476,47 +477,83 @@
     <p>Last update: Aug. 19, 2017.</p>
   </div>
   <div class="gotop" id="gotop">
-    <p><a href="#">Back to top</a></p>
+    <p><a href="#">[ Back to top ]</a></p>
   </div>
   </div>
   <script type="text/javascript">
+    var AtoZ = true;
     rdSort();
     generateList();
     function generateList() {
       /* generate quick list from pins */
       $(".sideList ul").empty();
       var nameArray = [];
-      var idArray = []
-      $(".pins h3").each(function(){
+      var idArray = [];
+      $(".pins h3").each(function(i){
         nameArray.push($(this).text());  
       });
       $(".pins").each(function(){
         idArray.push($(this).attr("id"));
       });
       $.each(nameArray,function(i,name) {
-        $(".sideList ul").append("<li><a href=#"+ idArray[i] + " >" + name + "&nbsp;</li>");
+        $(".sideList ul").append("<li><a href=#"+ idArray[i] + " >" + getLastname(name) + ", " + name.substr(0,1) + ".&nbsp;</li>");
       }); 
     }
     form1.sort1.onclick = function(){
       if (form1.sortMethod[0].checked) {
         /* sort by random */
         rdSort();
+        AtoZ = true;
       } else if (form1.sortMethod[1].checked) {
         /* sort by A-Z */
         azSort();
+        AtoZ = !AtoZ;
       }
       generateList();
+    }
+    function swap(a,i,j){
+      var temp = a[i];
+      a[i] = a[j];
+      a[j] = temp;
+    }
+    function getLastname(words) {
+      var n = words.split(/\s{1}/);
+      return n[n.length - 1];
     }
     /* Fisher-Yates shuffle */
     function shuffleArray(array) {
       for (var i = array.length - 1; i > 0; i--) {
-          var j = Math.floor(Math.random() * (i + 1));
-          var temp = array[i];
-          array[i] = array[j];
-          array[j] = temp;
+        var j = Math.floor(Math.random() * (i + 1));
+        swap(array,i,j);
       }
       return array;
     }
+    /* Sort a-z */
+    function sortList(array, AZ){
+      var names = [];
+      var L_name = [];
+      $.each(array,function(i,pin){
+        names.push($(this).find("h3").text()); 
+        L_name.push(getLastname(names[i]));
+      });
+      console.log(L_name);
+      var swapping = true;
+      while (swapping) { 
+        swapping = false;
+        for (var i = array.length - 1; i > 0; i--) {
+          var a = L_name[i].toLowerCase();
+          var b = L_name[i-1].toLowerCase();
+          if (!AZ) {var t=a; a=b; b=t;}
+          if (a < b){
+            swap(array,i,i-1);
+            swap(L_name,i,i-1);
+            swapping = true;
+          }
+        } 
+      }
+      return array;
+    }
+     
     /* sort pins */
     function rdSort(){
       var collection = $(".pins").get();
@@ -526,22 +563,34 @@
           $pin.appendTo( $pin.parent() );
       }); 
     }
+    function azSort(){
+      var collection = $(".pins").get();
+      sortList(collection, AtoZ);
+      $.each(collection,function(i,pin) {
+          var $pin = $(pin);
+          $pin.appendTo( $pin.parent() );
+      }); 
+    }
     /* Scroll settings */
-    $(".gotop").hide();
-    var timer
+    function hideGotop() {$(".gotop").hide();}
+    hideGotop();
+    var timer;
+    var lastoffset_Y = 0;
     function repositSide(){
-      $(".sideList").css({ "position": "static"});
+      $(".sideList").css({ "position": "static"} );
     }
     $(window).on("scroll", function() {
-      /* Show Go to top when scrolling */
+      /* Show Go to top only when scrolling up */
       clearTimeout(timer);
       var offset_Y = window.pageYOffset;
-      if (offset_Y == 0) {
-        $(".gotop").hide();
+      if (offset_Y > lastoffset_Y) {
+        hideGotop();
       } else {
         $(".gotop").show();
-        timer = setTimeout(function(){$(".gotop").fadeOut();}, 1500);
+        timer = setTimeout(function(){$(".gotop").fadeOut();}, 1500);  
       }
+      if (offset_Y == 0) { hideGotop(); }
+      lastoffset_Y = offset_Y;
       /* fixed sideList if scrolling over bottom of page-header (sideref_Y) */
       if (window.matchMedia("(min-width: 992px)").matches){
         var sideref_Y = $(".page-header").offset().top + $(".page-header").height();

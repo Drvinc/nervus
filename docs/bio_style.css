@@ -22,10 +22,13 @@ header, nav, main, footer {
   margin: 0 auto;
   padding: 0 1.5em;
 }
-h2,h3 {
+h2, h3{
   color: #913712;
   text-decoration: underline;
   margin: 0.6em auto 0.4em auto;
+}
+h2 a {
+  color: #913712;
 }
 p, ul{
   margin: 0.4em auto;
