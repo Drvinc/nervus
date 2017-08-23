@@ -598,15 +598,7 @@
         } else {
           timer = setTimeout(function(){$(".sideList").fadeOut()}, 2000);
         }
-      } else {
-        $(".sideList ul").show();
-      }
-    });
-    $(".sideList").hover(function(){
-      clearTimeout(timer);
-    });
-    $(".sideList li a").click(function(){
-      setTimeout(function(){$(this).trigger("click")}, 100);
+      } 
     });
     $("#showList").click(function(){
       $(".sideList ul").toggle();
