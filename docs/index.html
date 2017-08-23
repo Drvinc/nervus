@@ -226,10 +226,9 @@
     </div>
     <div class="sideList col-md-2">
       <div>
-      Go to:<details open><summary>[ show / hide ]</summary>
+      Go to:
       <ul>
       </ul>
-      </details>
       <div id="gotop"><hr>
       <a href="#">[ Back to top ]</a></div>
       </div>
@@ -574,12 +573,15 @@
       }); 
     }
     /* Scroll settings */
-    function repositSide(){
+    function repositSide(){ //reposition the sideList
       $(".sideList").css({ "position": "static", "top": "", "left": "", "width": ""});
     }
+    var timer;
+    $("#gotop").hide();
     $(window).on("scroll", function() {
-      /* fixed sideList if scrolling over bottom of page-header (sideref_Y) */
       repositSide();
+      clearTimeout(timer);
+      $(".sideList").show();
       $("#gotop").hide();
       var offset_Y = window.pageYOffset;
       var sideref_Y = $(".page-header").offset().top + $(".page-header").height();
@@ -591,7 +593,9 @@
         $("#gotop").show();
         if (window.matchMedia("(min-width: 992px)").matches) {
           $(".sideList").css({ "top": "0" });
-        } 
+        } else {
+          timer = setTimeout(function(){$(".sideList").fadeOut()}, 2000);
+        }
       }
     });
     /* force trigger scroll when window resized */
