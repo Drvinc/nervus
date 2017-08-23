@@ -69,3 +69,6 @@ figure {
   width: 200px;
   border-radius: 0.5em;
 }
+small {
+  color: gray;
+}

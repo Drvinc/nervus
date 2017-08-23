@@ -104,6 +104,9 @@
       .sideList div {
         margin: 0.5em 0 !important;
       }
+      #gotop {
+        text-align: left !important;
+      }
     }
 
     @media screen and (max-width: 991px) {    
@@ -118,7 +121,7 @@
       display: inline-block;
       width: 100%;
     }
-    .sideList div {
+    .sideList>div {
       margin: 1em;
       margin-bottom: 0.5em;
       border-radius: 0.5em;
@@ -128,6 +131,7 @@
     }
     .sideList {
       padding: 0;
+      z-index: 5;
     }
     .sideList ul {
       list-style: none;
@@ -152,23 +156,17 @@
     .footer p {
       margin-bottom: 0;
     }
-    .gotop {
-      width: 32%;
-      position: fixed;
-      bottom: 0;
-      right: 34%;
-      padding-top: 0.5em;
-      padding-bottom: 0;
+    #gotop {
       text-align: center;
-      background-color:#fffcf2;
-      border-top-left-radius: 0.5em;
-      border-top-right-radius: 0.5em;
     }
-    .gotop a{
+    #gotop a{
       text-decoration: none;
     }
     span {
       white-space: nowrap;
+    }
+    hr {
+      margin: 0.5em 0;
     }
   </style>
 </head>
@@ -231,9 +229,11 @@
       Go to:
       <ul>
       </ul>
+      <div id="gotop"><hr>
+      <a href="#">[ Back to top ]</a></div>
       </div>
     </div>
-    <div class="column columns col-md-10">
+    <div class="columns col-md-10">
       <div class="pins" id="D_Chalmers_10000">
         <div href="#" class="thumbnail">
           <img src="pics/Chalmers_254x191.jpg" alt="Chalmers_254x191.jpg" style="object-fit: cover">
@@ -258,9 +258,8 @@
           <img  src="pics/Crick_255x280.jpg" alt="Crick_255x280.jpg" style="object-fit: cover">
           <div class="caption">
             <h3>Francis&nbsp;Crick</h3>
-            <ul>
-              <li><em>Astonishing Hypothesis: The Scientific Search for the Soul</em> (1990) <a href="https://www.goodreads.com/book/show/399710"> | <i class="fa fa-book" aria-hidden="true"></i></a></li>
-            </ul>
+            <p><strong>&ldquo;The Astonishing Hypothesis is that &lsquo;You,&rsquo; your joys and your sorrows, your memories and your ambitions, your sense of personal identity and free will, are in fact no more than the behavior of a vast assembly of nerve cells and their associated molecules.&rdquo;</strong></p>
+            <p>&mdash; <em>Astonishing Hypothesis: The Scientific Search for the Soul</em> (1990) <a href="https://www.goodreads.com/book/show/399710"> | <i class="fa fa-book" aria-hidden="true"></i></a></p>
             <p>
               <a href="#" class="btn btn-primary" role="button">MORE...</a>
               <a href="#" class="btn btn-danger" role="button">Video</a>
@@ -577,41 +576,35 @@
       }); 
     }
     /* Scroll settings */
-    function hideGotop() {$(".gotop").hide();}
-    hideGotop();
     var timer;
     var lastoffset_Y = 0;
+    function hideGotop() {$(".gotop").hide();}
     function repositSide(){
-      $(".sideList").css({ "position": "static"} );
+      $(".sideList").css({ "position": "static", "top": "", "left": "", "width": ""});
     }
     $(window).on("scroll", function() {
-      /* Show Go to top only when scrolling up */
       clearTimeout(timer);
-      var offset_Y = window.pageYOffset;
-      if (offset_Y > lastoffset_Y) {
-        hideGotop();
-      } else {
-        $(".gotop").show();
-        timer = setTimeout(function(){$(".gotop").fadeOut();}, 1500);  
-      }
-      if (offset_Y == 0) { hideGotop(); }
-      lastoffset_Y = offset_Y;
+      $(".sideList").show();
       /* fixed sideList if scrolling over bottom of page-header (sideref_Y) */
-      if (window.matchMedia("(min-width: 992px)").matches){
-        var sideref_Y = $(".page-header").offset().top + $(".page-header").height();
-        var sidepos_X = $(".sideList").offset().left;
-        if (offset_Y >= sideref_Y){
-          $(".sideList").css({ "position": "fixed", "top": "0px", "left": sidepos_X });
+      repositSide();
+      $("#gotop").hide();
+      var offset_Y = window.pageYOffset;
+      var sideref_Y = $(".page-header").offset().top + $(".page-header").height();
+      var sidepos_X = $(".sideList").offset().left;
+      var sideW = $(".sideList").width();
+      var sideH = $(".sideList").height();
+      if (offset_Y >= sideref_Y){
+        $(".sideList").css({ "position": "fixed", "bottom": "0", "left": sidepos_X, "width": sideW });
+        $("#gotop").show();
+        if (window.matchMedia("(min-width: 992px)").matches) {
+          $(".sideList").css({ "top": "0" });
         } else {
-          repositSide();
-        } 
-      } else {
-        repositSide();
+          timer = setTimeout(function(){$(".sideList").fadeOut();}, 1500);  
+        }
       }
     });
-    /* force re-position sideList when resize screen */
+    /* force trigger scroll when window resized */
     $(window).resize(function(){
-      repositSide();
       $(window).scroll();
     });
   </script>
