@@ -226,7 +226,7 @@
     </div>
     <div class="sideList col-md-2">
       <div>
-      Go to:
+      Go to: <button id="showList"> show / hide </button>
       <ul>
       </ul>
       <div id="gotop"><hr>
@@ -577,17 +577,19 @@
       $(".sideList").css({ "position": "static", "top": "", "left": "", "width": ""});
     }
     var timer;
+    var offset_Y;
+    var sideH;
     $("#gotop").hide();
     $(window).on("scroll", function() {
       repositSide();
       clearTimeout(timer);
       $(".sideList").show();
       $("#gotop").hide();
-      var offset_Y = window.pageYOffset;
+      offset_Y = window.pageYOffset;
       var sideref_Y = $(".page-header").offset().top + $(".page-header").height();
       var sidepos_X = $(".sideList").offset().left;
       var sideW = $(".sideList").width();
-      var sideH = $(".sideList").height();
+      sideH = $(".sideList").height();
       if (offset_Y >= sideref_Y){
         $(".sideList").css({ "position": "fixed", "bottom": "0", "left": sidepos_X, "width": sideW });
         $("#gotop").show();
@@ -596,8 +598,19 @@
         } else {
           timer = setTimeout(function(){$(".sideList").fadeOut()}, 2000);
         }
+      } else {
+        $(".sideList ul").show();
       }
     });
+    $(".sideList").hover(function(){
+      clearTimeout(timer);
+    });
+    $(".sideList li a").click(function(){
+      setTimeout(function(){$(this).trigger("click")}, 100);
+    });
+    $("#showList").click(function(){
+      $(".sideList ul").toggle();
+    })
     /* force trigger scroll when window resized */
     $(window).resize(function(){
       $(window).scroll();
