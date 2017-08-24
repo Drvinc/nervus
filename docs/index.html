@@ -490,7 +490,7 @@
     <p>Last update: Aug. 22, 2017.</p>
   </div>
   <div class="smList">
-    <div id="smlistContent">
+    <div id="smlistContent" class="collapse in">
       <div class="gotop">
         <hr>
         <a href="#">[ Back to top ]</a>
@@ -519,7 +519,7 @@
       $.each(nameArray,function(i,name) {
         $(".sideList ul").append("<li><a href=#"+ idArray[i] + " >" + getLastname(name) + ", " + name.substr(0,1) + ".&nbsp;</li>");
       }); 
-      $("#smlistContent .gotop").empty();
+      $("#smlistContent ul").remove();
       $(".sideList ul").clone().prependTo("#smlistContent .gotop");
     }
     form1.sort1.onclick = function(){
@@ -616,6 +616,7 @@
       if (offset_Y >= sideBtm && window.matchMedia("(max-width: 991px)").matches){
         $(".smList").css({ "position": "fixed", "bottom": "-0.5em", "right": "-1em" });
         $(".smList").show();
+        $("#sidelistContent").show();
         $(".smList .gotop").show();
       }
     });
