@@ -603,7 +603,9 @@
     }
     $(".gotop").hide();
     $(".smList").hide();
+    var sidescrollTop = 0;
     $(window).on("scroll", function() {
+      sidescrollTop = $(".smList").scrollTop();
       repositSide();
       $(".sideList").show();
       $(".gotop").hide();
@@ -622,6 +624,7 @@
         $(".smList").show();
         $("#sidelistContent").show();
         $(".smList .gotop").show();
+        $(".smList").scrollTop(sidescrollTop);
       }
     });
     /* force trigger scroll when window resized */
