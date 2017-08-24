@@ -104,7 +104,7 @@
       .sideList div {
         margin: 0.5em 0 !important;
       }
-      #gotop {
+      .gotop {
         text-align: left !important;
       }
     }
@@ -121,7 +121,7 @@
       display: inline-block;
       width: 100%;
     }
-    .sideList>div {
+    .sideList>div, .smList{
       margin: 1em;
       margin-bottom: 0.5em;
       border-radius: 0.5em;
@@ -129,11 +129,20 @@
       border: 1px lightgrey solid;
       background-color: #fffcf2;
     }
+    .smList {
+      padding: 0;
+    }
+    #smlistContent {
+      padding: 1em;
+    }
+    #smlistContent ul{
+      text-align: left;
+    }
     .sideList {
       padding: 0;
       z-index: 5;
     }
-    .sideList ul {
+    .sideList ul, .smList ul {
       list-style: none;
       padding-left: 0;
       margin-bottom: 0;
@@ -156,10 +165,10 @@
     .footer p {
       margin-bottom: 0;
     }
-    #gotop {
+    .gotop {
       text-align: center;
     }
-    #gotop a{
+    .gotop a{
       text-decoration: none;
     }
     span {
@@ -226,10 +235,10 @@
     </div>
     <div class="sideList col-md-2">
       <div>
-      Go to: <button id="showList"> show / hide </button>
+      Go to: 
       <ul>
       </ul>
-      <div id="gotop"><hr>
+      <div class="gotop"><hr>
       <a href="#">[ Back to top ]</a></div>
       </div>
     </div>
@@ -480,6 +489,17 @@
   <div class="footer">
     <p>Last update: Aug. 22, 2017.</p>
   </div>
+  <div class="smList">
+    <div id="smlistContent">
+      <div class="gotop">
+        <hr>
+        <a href="#">[ Back to top ]</a>
+      </div>
+    </div>
+    <a href="#smlistContent" class="btn" data-toggle="collapse">
+      <span class="fa fa-navicon" aria-hidden="true"></span>
+    </a>
+  </div>
   </div>
   <script type="text/javascript">
     var AtoZ = true;
@@ -499,6 +519,8 @@
       $.each(nameArray,function(i,name) {
         $(".sideList ul").append("<li><a href=#"+ idArray[i] + " >" + getLastname(name) + ", " + name.substr(0,1) + ".&nbsp;</li>");
       }); 
+      $("#smlistContent .gotop").empty();
+      $(".sideList ul").clone().prependTo("#smlistContent .gotop");
     }
     form1.sort1.onclick = function(){
       if (form1.sortMethod[0].checked) {
@@ -537,7 +559,6 @@
         names.push($(this).find("h3").text()); 
         L_name.push(getLastname(names[i]));
       });
-      console.log(L_name);
       var swapping = true;
       while (swapping) { 
         swapping = false;
@@ -576,33 +597,28 @@
     function repositSide(){ //reposition the sideList
       $(".sideList").css({ "position": "static", "top": "", "left": "", "width": ""});
     }
-    var timer;
-    var offset_Y;
-    var sideH;
-    $("#gotop").hide();
+    $(".gotop").hide();
+    $(".smList").hide();
     $(window).on("scroll", function() {
       repositSide();
-      clearTimeout(timer);
       $(".sideList").show();
-      $("#gotop").hide();
-      offset_Y = window.pageYOffset;
+      $(".gotop").hide();
+      var offset_Y = window.pageYOffset;
       var sideref_Y = $(".page-header").offset().top + $(".page-header").height();
       var sidepos_X = $(".sideList").offset().left;
       var sideW = $(".sideList").width();
-      sideH = $(".sideList").height();
-      if (offset_Y >= sideref_Y){
-        $(".sideList").css({ "position": "fixed", "bottom": "0", "left": sidepos_X, "width": sideW });
-        $("#gotop").show();
-        if (window.matchMedia("(min-width: 992px)").matches) {
-          $(".sideList").css({ "top": "0" });
-        } else {
-          timer = setTimeout(function(){$(".sideList").fadeOut()}, 2000);
-        }
-      } 
+      var sideBtm = $(".sideList").offset().top + $(".sideList").height();
+      if (offset_Y >= sideref_Y && window.matchMedia("(min-width: 992px)").matches){
+        $(".sideList").css({ "position": "fixed", "top": "0", "left": sidepos_X, "width": sideW });
+        $(".gotop").show();
+      }
+      $(".smList").hide();
+      if (offset_Y >= sideBtm && window.matchMedia("(max-width: 991px)").matches){
+        $(".smList").css({ "position": "fixed", "bottom": "-0.5em", "right": "-1em" });
+        $(".smList").show();
+        $(".smList .gotop").show();
+      }
     });
-    $("#showList").click(function(){
-      $(".sideList ul").toggle();
-    })
     /* force trigger scroll when window resized */
     $(window).resize(function(){
       $(window).scroll();
