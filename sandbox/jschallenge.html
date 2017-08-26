@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+function printerError(s) {
+    var l = s.length;
+    var e = 0;
+    for ( var i = 0; i < l; i++ ) {
+      if (s.substr(i, 1) > "m") {
+        e = e+1;
+      }
+    }
+    return e+"/"+l;
+}
+
+    console.log(printerError("ammmmxxx"));
+  </script>
+</body>
+</html>

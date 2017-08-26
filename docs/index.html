@@ -367,6 +367,23 @@
           </div>
         </div>
       </div>
+      <div class="pins" id="N_Humphrey">
+        <div href="#" class="thumbnail">
+          <img src="pics/humphrey_540x439.jpg" alt="" style="object-fit: cover">
+          <div class="caption">
+            <h3>Nicholas&nbsp;Humphrey</h3>
+            <p><strong>&ldquo;What is required of an experience if it is to be such that a subject can proudly be the subject of it? I believe the answer is the very property that we have just now identified as central to the experience of sensation: the substantiality that goes with existing in thick time&rdquo;</strong></p>
+            <p>&mdash;&nbsp;<em>Seeing Red: A Study in Consciousness</em> (2006) | <a href="https://www.goodreads.com/book/show/626626" target="_blank"><i class="fa fa-book" aria-hidden="true"></i></a></p>
+            <ul>
+              <li><em>Soul Dust: The Magic of Consciousness</em> (2011) | <a href="https://www.goodreads.com/book/show/9751599" target="_blank"><i class="fa fa-book" aria-hidden="true"></i></a></li>
+            </ul>
+            <p>
+              <a href="#" class="btn btn-primary" role="button">MORE...</a>
+              <a href="#" class="btn btn-danger" role="button">Video</a>
+            </p>
+          </div>
+        </div>
+      </div>
       <div class="pins" id="P_Churchland">
         <div href="#" class="thumbnail">
           <img src="pics/P_Churchland_380x270.jpg" alt="" style="object-fit: cover">
@@ -492,7 +509,7 @@
     </div>
   </div>
   <div class="footer">
-    <p>Last update: Aug. 24, 2017.</p>
+    <p>Last update: Aug. 27, 2017.</p>
   </div>
   <div class="smList">
     <div id="smlistContent" class="collapse in">
@@ -529,15 +546,18 @@
       $(".sideList ul").clone().prependTo("#smlistContent .gotop");
     }
     form1.sort1.onclick = function(){
+      var collection = $(".pins").get();
       if (form1.sortMethod[0].checked) {
-        /* sort by random */
-        rdSort();
+        shuffleArray(collection); // sort by random 
         AtoZ = true;
       } else if (form1.sortMethod[1].checked) {
-        /* sort by A-Z */
-        azSort();
+        sortList(collection, AtoZ); // sort by A-Z 
         AtoZ = !AtoZ;
       }
+      $.each(collection,function(i,pin) {
+          var $pin = $(pin);
+          $pin.appendTo( $pin.parent() );
+      }); 
       generateList();
     }
     function swap(a,i,j){
