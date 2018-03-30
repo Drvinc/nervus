@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        td {
+            width: 48px;
+            height: 48px;
+            border: solid 1px darkorange;
+        }
+
+        div {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="pannel" style="width: 500px;height: 500px;z-index: 1;opacity: 0.5"></div>
+
+<script>
+    document.write("<table cellspacing='0px'>");
+    for (var i = 0; i < 10; i++) {
+        document.write("<tr>");
+        for (var j = 0; j < 10; j++) {
+            document.write("<td></td>");
+        }
+        document.write("</tr>");
+    }
+    document.write("</table>");
+    //創建頭部
+    var pannel = document.getElementById("pannel");
+    function createNode(type) {
+        var div = document.createElement("div");
+        pannel.appendChild(div);
+
+        div.style.left = parseInt(Math.random() * 10) * 50 + "px";
+        div.style.top = parseInt(Math.random() * 10) * 50 + "px";
+
+        switch (type) {
+            case 0:
+                div.style.background = "red";//頭
+                break;
+            case 1:
+                div.style.background = "blue";//食物
+                break;
+            case 2:
+                div.style.background = "yellow";//身體
+                break;
+        }
+        return div;
+    }
+    var allNode = new Array();
+    var fooldNode = null;
+    var headNode = null;
+    headNode = createNode(0);
+    headNode.value = http://my.oschina.net/yom/blog/39;
+    fooldNode = createNode(1);
+    function moveNode() {
+
+//移動所有身體
+        if (allNode.length > 0) {
+            for (var n = allNode.length - 1; n >= 0; n--) {
+                switch (parseInt(allNode[n].value)) {
+                    case 37:
+                        allNode[n].style.left = parseInt(allNode[n].style.left) - 50 +"px";
+                        break;
+                    case 38:
+                        allNode[n].style.top = parseInt(allNode[n].style.top) - 50 + "px";
+                        break;
+                    case 39:
+                        allNode[n].style.left = parseInt(allNode[n].style.left) + 50 + "px";
+                        break;
+                    case 40:
+                        allNode[n].style.top = parseInt(allNode[n].style.top) + 50 + "px";
+                        break;
+                }
+                if(n>0){
+                    allNode[n].value = http://my.oschina.net/yom/blog/allNode[n-1].value;
+                }else {
+                    allNode[n].value = headNode.value;
+                }
+            }
+        }
+
+        var px = parseInt(headNode.style.left);
+        var py = parseInt(headNode.style.top);
+        switch (headNode.value) {
+            case 37:
+                headNode.style.left = px - 50 +"px";
+                break;
+            case 38:
+                headNode.style.top = py - 50 + "px";
+                break;
+            case 39:
+                headNode.style.left = px + 50 + "px";
+                break;
+            case 40:
+                headNode.style.top = py + 50 + "px";
+                break;
+        }
+
+        //碰撞檢測
+        if (headNode.style.left == fooldNode.style.left &&
+                headNode.style.top == fooldNode.style.top) {
+            var newbody = createNode(2);
+            var lastbody = null;
+            if (allNode.length == 0) {
+                lastbody = headNode;
+            } else {
+                lastbody = allNode[allNode.length - 1];
+            }
+            newbody.value = http://my.oschina.net/yom/blog/lastbody.value;
+//            lastbody.style.left = parseInt(lastbody.style.left)-50+"px";
+            switch (parseInt(lastbody.value)) {
+                case 37:
+                    newbody.style.left = parseInt(lastbody.style.left) + 50 + "px";
+                    newbody.style.top = lastbody.style.top;
+                    break;
+                case 38:
+                    newbody.style.top = parseInt(lastbody.style.top) + 50 + "px";
+                    newbody.style.left = lastbody.style.left;
+                    break;
+                case 39:
+                    newbody.style.left = parseInt(lastbody.style.left) - 50 + "px";
+                    newbody.style.top = lastbody.style.top;
+                    break;
+                case 40:
+                    newbody.style.top = parseInt(lastbody.style.top) - 50 + "px";
+                    newbody.style.left = lastbody.style.left;
+                    break;
+            }
+
+            allNode.push(newbody);
+            fooldNode.style.left = parseInt(Math.random() * 10) * 50 + "px";
+            fooldNode.style.top = parseInt(Math.random() * 10) * 50 + "px";
+        }//碰撞end
+
+    }
+    setInterval(moveNode, 500);
+    document.onkeydown = function () {
+        switch (event.keyCode) {
+            case 37:
+                headNode.value = http://my.oschina.net/yom/blog/37;
+                break;
+            case 38:
+                headNode.value = 38;
+                break;
+            case 39:
+                headNode.value = 39;
+                break;
+            case 40:
+                headNode.value = 40;
+                break;
+        }
+    }
